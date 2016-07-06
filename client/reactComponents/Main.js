@@ -16,7 +16,7 @@ class Main extends React.Component {
 
   render () {
     return (
-      <div> Ian deBoisblanc 
+      <div> 
         <Header/>
         <NavBar/>
         {this.props.children}
