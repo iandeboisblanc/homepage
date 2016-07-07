@@ -19,7 +19,9 @@ class Main extends React.Component {
       <div> 
         <Header/>
         <NavBar/>
-        {this.props.children}
+        <div id='contentBody'>
+          {this.props.children}
+        </div>
       </div>
     );
   }
