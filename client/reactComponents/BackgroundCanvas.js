@@ -12,7 +12,8 @@ class BackgroundCanvas extends React.Component {
     this.width = window.innerWidth;
     this.lastWidth = this.width;
     this.height = window.innerHeight;
-    this.bubbles = createRandomBubbles(100);
+    this.bubbleCount = 100;
+    this.bubbles = createRandomBubbles(this.bubbleCount);
   }
 
   componentDidMount () {
@@ -37,11 +38,13 @@ class BackgroundCanvas extends React.Component {
       });
     
     this.animateBubbles = this.animateBubbles.bind(this);
+    this.addNewBubbles = this.addNewBubbles.bind(this);
     setInterval(this.animateBubbles, 50);
+    setInterval(this.addNewBubbles, 1000);
   }
 
   animateBubbles() {
-    this.bubbles.filter(bubble => bubble.y > -0.05);
+    this.bubbles = this.bubbles.filter(bubble => bubble.y > -0.05);
 
     let bubbles = 
       d3.select('svg').selectAll('circle')
@@ -68,6 +71,10 @@ class BackgroundCanvas extends React.Component {
         d.y -= d.rate;
         return d.y * this.height;
       });
+  }
+
+  addNewBubbles() {
+    this.bubbles = [...this.bubbles, ...createRandomBubbles(this.bubbleCount - this.bubbles.length)];
   }
 
   render () {
