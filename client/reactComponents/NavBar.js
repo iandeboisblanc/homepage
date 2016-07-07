@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
-    <div>
+    <nav>
       NavBar:
       <Link to={'/Projects'}> Projects </Link> 
       <Link to={'/About'}> About </Link> 
-    </div>
+    </nav>
   )
 }
 

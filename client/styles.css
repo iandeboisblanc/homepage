@@ -6,6 +6,27 @@ body {
   font-family: 'Josefin Sans', sans-serif;
 }
 
+.backgroundCanvas {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+svg {
+  background-color: blue;
+}
+
+header {
+  padding: 10px;
+  background-color: white;
+  border-bottom: solid black 3px;
+}
+
+.headerChildren {
+  padding: 0;
+}
+
 #contentBody {
   background-color: green;
 }
