@@ -9,7 +9,6 @@ require('./styles.css');
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path='/' component = {Main}>
-      <IndexRedirect to='/About'/>
       <Route path='/About' component={About} />
       <Route path='/Projects' component={Projects} />
     </Route>

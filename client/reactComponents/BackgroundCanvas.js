@@ -26,17 +26,20 @@ class BackgroundCanvas extends React.Component {
         d3.select('svg')
           .attr('width', this.width)
           .attr('height', this.height);
-        // if(this.width > this.lastWidth) {
-        //   this.bubbles = [...this.bubbles, ...createRandomBubbles((this.width - this.lastWidth) / 5, this.lastWidth, this.width)];
-        //   d3.selectAll('circle')
-        //     .data(this.bubbles, d => d.id)
-        //     .enter()
-        //     .append('circle')
-        //     .attr('r', d => d.radius)
-        //     .attr('cx', d => d.x * this.width)
-        //     .attr('cy', d => d.y * this.height);
-        // }
       });
+
+    window.addEventListener('click', e => {
+      let popped = false;
+      this.bubbles.forEach((d) => {
+        if(!popped && e.x > d.x * this.width - d.radius && e.x < d.x * this.width + d.radius 
+          && e.y > d.y * this.height - d.radius && e.y < d.y * this.height + d.radius) {
+          this.bubbles = this.bubbles.filter(bubble => bubble.id !== d.id);
+          this.createBurst(d);
+          this.bubbles = [...this.bubbles, ...createTinyBubbles(d)]
+          popped = true;
+        }
+      });
+    });
     
     this.animateBubbles = this.animateBubbles.bind(this);
     this.addNewBubbles = this.addNewBubbles.bind(this);
@@ -58,11 +61,11 @@ class BackgroundCanvas extends React.Component {
       .attr('r', d => d.radius)
       .attr('cx', d => d.x * this.width)
       .attr('cy', d => d.y * this.height)
-      .on('click', (d) => {
-        this.bubbles = this.bubbles.filter(bubble => bubble.id !== d.id);
-        this.createBurst(d);
-        this.bubbles = [...this.bubbles, ...createTinyBubbles(d)]
-      });
+      // .on('click', (d) => {
+      //   this.bubbles = this.bubbles.filter(bubble => bubble.id !== d.id);
+      //   this.createBurst(d);
+      //   this.bubbles = [...this.bubbles, ...createTinyBubbles(d)]
+      // });
 
     bubbles.exit()
       .remove();
