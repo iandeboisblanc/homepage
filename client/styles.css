@@ -17,6 +17,10 @@ svg {
   background-color: blue;
 }
 
+line {
+  stroke: white;
+}
+
 .bubble {
   stroke: black;
   stroke-width: 1px;

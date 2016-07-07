@@ -10,16 +10,17 @@ class BackgroundCanvas extends React.Component {
   constructor(props) {
     super(props);
     this.width = window.innerWidth;
-    this.lastWidth = this.width;
     this.height = window.innerHeight;
     this.bubbleCount = 100;
     this.bubbles = createRandomBubbles(this.bubbleCount);
+    let transitionTime = 15;
+    this.burstTransition = d3.transition().duration(transitionTime / 2).ease(d3.easeLinear);
+    this.delayedBurstTransition = d3.transition().duration(transitionTime).ease(d3.easeLinear).delay(transitionTime * 0.75);
   }
 
   componentDidMount () {
     d3.select(window)
       .on('resize', () => {
-        this.lastWidth = this.width;
         this.width = window.innerWidth;
         this.height = window.innerHeight;
         d3.select('svg')
@@ -59,6 +60,7 @@ class BackgroundCanvas extends React.Component {
       .attr('cy', d => d.y * this.height)
       .on('click', (d) => {
         this.bubbles = this.bubbles.filter(bubble => bubble.id !== d.id);
+        this.createBurst(d);
         this.bubbles = [...this.bubbles, ...createTinyBubbles(d)]
       });
 
@@ -75,6 +77,34 @@ class BackgroundCanvas extends React.Component {
 
   addNewBubbles() {
     this.bubbles = [...this.bubbles, ...createRandomBubbles(this.bubbleCount - this.bubbles.length)];
+  }
+
+  createBurst(d) {
+    var lines = [];
+    var length = d.radius + 1;
+    for(var i = 0; i < 6; i++) {
+      lines.push({
+        x1: d.x * this.width,
+        x2: d.x * this.width + length * Math.cos(i * Math.PI / 3),
+        y1: d.y * this.height,
+        y2: d.y * this.height + length * Math.sin(i * Math.PI / 3),
+      })
+    }
+    d3.select('svg').selectAll('.explosions' + d.id)
+      .data(lines)
+      .enter()
+      .append('line')
+      .attr('class', 'explosions' + d.id)
+      .attr('x1', d => d.x1)
+      .attr('y1', d => d.y1)
+      // .attr('x2', d => d.x1)
+      // .attr('y2', d => d.y1)
+      // .transition(this.burstTransition)
+      .attr('x2', d => d.x2)
+      .attr('y2', d => d.y2)
+      .transition(this.delayedBurstTransition)
+      .attr('x1', d => d.x2)
+      .attr('y1', d => d.y2);
   }
 
   render () {
