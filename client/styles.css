@@ -17,6 +17,12 @@ svg {
   background-color: blue;
 }
 
+.bubble {
+  stroke: black;
+  stroke-width: 1px;
+  fill: white;
+}
+
 header {
   padding: 10px;
   background-color: white;
