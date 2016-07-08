@@ -4,6 +4,8 @@
 
 body {
   font-family: 'Josefin Sans', sans-serif;
+  cursor: default;
+  color: rgb(70, 65, 65);
 }
 
 .backgroundCanvas {
@@ -14,7 +16,8 @@ body {
 }
 
 svg {
-  background-color: blue;
+  /*background-color: rgb(140, 236, 255);*/
+  background-color: rgb(128, 189, 219);
 }
 
 line {
@@ -22,29 +25,63 @@ line {
 }
 
 .bubble {
-  stroke: black;
+  stroke: rgb(159, 204, 201);
   stroke-width: 1px;
-  fill: white;
+  fill: rgb(255, 243, 224);
 }
 
 header {
+  padding: 10px 20px;
+  /*background-color: rgb(255, 249, 240);*/
+  /*background-color: rgb(145, 177, 200);*/
+  /*background-color: rgb(152, 118, 97);*/
+  /*border-bottom: solid rgb(159, 204, 201) 3px;*/
+}
+
+nav {
+  background-color: rgb(159, 204, 201);
+}
+
+.navItem {
   padding: 10px;
-  background-color: white;
-  border-bottom: solid black 3px;
+  display: inline-block;
 }
 
 .headerChildren {
   padding: 0;
 }
 
-.contentBody {
-  background-color: rgba(255, 255, 255, 0.6);
+.about, .projects {
+  background-color: rgba(255, 255, 255, 0.75);
   margin: 10px;
+  padding: 10px;
+  border-radius: 3px;
 }
 
+.projects {
+  background-color: rgba(255, 243, 224, 0.75);
+  margin: 10px;
+  padding: 10px;
+  border-radius: 3px;
+}
 
+.example-enter {
+  opacity: 0.01;
+}
 
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
 
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
 
 
 

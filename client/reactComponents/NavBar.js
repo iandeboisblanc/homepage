@@ -4,9 +4,12 @@ import { Link } from 'react-router';
 const NavBar = (props) => {
   return (
     <nav>
-      NavBar:
-      <Link to={'/Projects'}> Projects </Link> 
-      <Link to={'/About'}> About </Link> 
+      <span className='navItem'>
+        <Link to={'/Projects'}> Projects </Link> 
+      </span>
+      <span className='navItem'>
+        <Link to={'/About'}> About </Link> 
+      </span>
     </nav>
   )
 }

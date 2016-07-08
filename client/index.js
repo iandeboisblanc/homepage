@@ -9,8 +9,8 @@ require('./styles.css');
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path='/' component = {Main}>
-      <Route path='/About' component={About} />
-      <Route path='/Projects' component={Projects} />
+      <Route key='about' path='/About' component={About} />
+      <Route key='projects' path='/Projects' component={Projects} />
     </Route>
   </Router>
 , document.getElementById('app'));
