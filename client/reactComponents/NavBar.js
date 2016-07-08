@@ -9,8 +9,9 @@ class NavBar extends React.Component {
   render () {
     return (
       <nav>
-        <Link className='navItem' activeClassName='active' to={'/Projects'}> Projects </Link> 
         <Link className='navItem' activeClassName='active' to={'/About'}> About </Link> 
+        <Link className='navItem' activeClassName='active' to={'/Projects'}> Projects </Link> 
+        <Link className='navItem' activeClassName='active' to={'/Contact'}> Contact </Link> 
       </nav>
     )
   }
