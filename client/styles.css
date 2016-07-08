@@ -4,6 +4,7 @@
 
 body {
   font-family: 'Josefin Sans', sans-serif;
+  text-decoration: none;
   cursor: default;
   color: rgb(70, 65, 65);
 }
@@ -42,9 +43,17 @@ nav {
   background-color: rgb(159, 204, 201);
 }
 
+a {
+  text-decoration: none;
+}
+
 .navItem {
   padding: 10px;
   display: inline-block;
+}
+
+.navItem.active {
+  background-color: rgb(230, 151, 151);
 }
 
 .headerChildren {

@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const NavBar = (props) => {
-  return (
-    <nav>
-      <span className='navItem'>
-        <Link to={'/Projects'}> Projects </Link> 
-      </span>
-      <span className='navItem'>
-        <Link to={'/About'}> About </Link> 
-      </span>
-    </nav>
-  )
+class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render () {
+    return (
+      <nav>
+        <Link className='navItem' activeClassName='active' to={'/Projects'}> Projects </Link> 
+        <Link className='navItem' activeClassName='active' to={'/About'}> About </Link> 
+      </nav>
+    )
+  }
 }
 
 module.exports = NavBar;
