@@ -28,10 +28,11 @@ var Eves = [];
 setTimeout(runEves.bind(null, Eves),1000);
 
 app.use(express.static(__dirname + '/../client/dist'));
+app.use(express.static(__dirname + '/../client/evolution'));
 
 // Routes
 app.get('/evolution', (req, res) => {
-  res.sendFile(path.resolve(__dirname + '/../client/dist/evolution/index.html'))
+  res.sendFile(path.resolve(__dirname + '/../client/evolution/index.html'))
 });
 
 app.get('/api/state', (req, res) => {
