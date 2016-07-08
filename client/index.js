@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, browserHistory} from 'react-router';
+import {Router, Route, Redirect, browserHistory} from 'react-router';
 import Main from './reactComponents/Main';
 import About from './reactComponents/About';
 import Projects from './reactComponents/Projects';
@@ -13,6 +13,7 @@ ReactDOM.render(
       <Route key='about' name='About' path='/About' component={About} />
       <Route key='projects' name='Projects' path='/Projects' component={Projects} />
       <Route key='contact' name='Contact' path='/Contact' component={Contact} />
+      <Redirect from='*' to='/'/>
     </Route>
   </Router>
 , document.getElementById('app'));
