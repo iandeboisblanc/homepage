@@ -53,22 +53,15 @@ a {
 }
 
 .navItem.active {
-  background-color: rgb(230, 151, 151);
+  background-color: rgb(236, 172, 75);
 }
 
 .headerChildren {
   padding: 0;
 }
 
-.about, .projects {
+.about, .projects, .contact {
   background-color: rgba(255, 255, 255, 0.75);
-  margin: 10px;
-  padding: 10px;
-  border-radius: 3px;
-}
-
-.projects {
-  background-color: rgba(255, 243, 224, 0.75);
   margin: 10px;
   padding: 10px;
   border-radius: 3px;
