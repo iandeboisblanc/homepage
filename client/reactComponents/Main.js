@@ -3,6 +3,8 @@ import Header from './Header';
 import NavBar from './NavBar';
 import BackgroundCanvas from './BackgroundCanvas';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { RouteTransition } from 'react-router-transition';
+
 
 class Main extends React.Component {
 
@@ -16,9 +18,13 @@ class Main extends React.Component {
         <BackgroundCanvas />
         <Header/>
         <NavBar/>
-        <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+        <RouteTransition
+        pathname={this.props.location.pathname}
+        atEnter={{ opacity: 0 }}
+        atLeave={{ opacity: 0 }}
+        atActive={{ opacity: 1 }}>
           {this.props.children}
-        </ReactCSSTransitionGroup>
+        </RouteTransition>
       </div>
     );
   }

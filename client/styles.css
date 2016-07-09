@@ -2,7 +2,7 @@
   margin: 0;
 }
 
-body {
+body, a:visited {
   font-family: 'Josefin Sans', sans-serif;
   text-decoration: none;
   cursor: default;
@@ -16,8 +16,7 @@ body {
   z-index: -1;
 }
 
-svg {
-  /*background-color: rgb(140, 236, 255);*/
+.backgroundSvg {
   background-color: rgb(128, 189, 219);
 }
 
@@ -33,10 +32,6 @@ line {
 
 header {
   padding: 10px 20px;
-  /*background-color: rgb(255, 249, 240);*/
-  /*background-color: rgb(145, 177, 200);*/
-  /*background-color: rgb(152, 118, 97);*/
-  /*border-bottom: solid rgb(159, 204, 201) 3px;*/
 }
 
 nav {
@@ -61,10 +56,26 @@ a {
 }
 
 .about, .projects, .contact {
+  position: absolute;
+  left: 0;
+  right: 0;
   background-color: rgba(255, 255, 255, 0.75);
   margin: 10px;
   padding: 10px;
   border-radius: 3px;
+}
+
+.email {
+  margin-right: 5px;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  background: none;
+  /*outline: none;*/
 }
 
 .example-enter {
@@ -73,7 +84,7 @@ a {
 
 .example-enter.example-enter-active {
   opacity: 1;
-  transition: opacity 500ms ease-in;
+  transition: opacity 300ms ease-in;
 }
 
 .example-leave {

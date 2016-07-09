@@ -1,9 +1,5 @@
 import React from 'react';
-// import d3 from 'd3';
 import * as d3 from 'd3';
-
-// const server = 'http://159.203.221.124:80'; // production
-// const server = 'http://192.168.1.13:8080'; // development
 
 class BackgroundCanvas extends React.Component {
 
@@ -113,7 +109,7 @@ class BackgroundCanvas extends React.Component {
   render () {
     return (
       <div className='backgroundCanvas'>
-        <svg width={this.width} height={this.height} />
+        <svg className='backgroundSvg' width={this.width} height={this.height} />
       </div>
     );
   }
