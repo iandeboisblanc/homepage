@@ -2,10 +2,15 @@
   margin: 0;
 }
 
-body, a:visited {
+body {
   font-family: 'Josefin Sans', sans-serif;
   text-decoration: none;
   cursor: default;
+  color: rgb(70, 65, 65);
+}
+
+a:visited {
+  text-decoration: none;
   color: rgb(70, 65, 65);
 }
 
@@ -69,6 +74,19 @@ a {
   margin-right: 5px;
 }
 
+.clipboardFeedback {
+  position: relative;
+  font-size: 10px;
+  opacity: 0;
+  transition: opacity;
+  transition-duration: 1.5s;
+}
+
+.clipboardFeedback.active {
+  opacity: 1;
+  transition-duration: 0.3s;
+}
+
 .btn {
   cursor: pointer;
   padding: 0px;
@@ -97,5 +115,22 @@ a {
 }
 
 
+@media screen and (max-width: 436px) {
+  body {
+    font-size: 6vw;
+  }
+
+  h1 {
+    font-size: 10vw;
+  }
+
+  h2 {
+    font-size: 7vw;
+  }
+
+  .clipboardFeedback {
+    font-size: 4vw;
+  }
+}
 
 

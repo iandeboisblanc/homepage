@@ -36,7 +36,7 @@ class BackgroundCanvas extends React.Component {
         }
       });
     });
-    
+
     this.animateBubbles = this.animateBubbles.bind(this);
     this.addNewBubbles = this.addNewBubbles.bind(this);
     setInterval(this.animateBubbles, 50);
@@ -151,3 +151,4 @@ function createBubble(radius, x, y, rate) {
     rate: rate || 0
   }
 }
+
