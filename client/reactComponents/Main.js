@@ -5,7 +5,6 @@ import BackgroundCanvas from './BackgroundCanvas';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { RouteTransition } from 'react-router-transition';
 
-
 class Main extends React.Component {
 
   constructor(props) {

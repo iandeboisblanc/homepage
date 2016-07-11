@@ -24,23 +24,43 @@ class BackgroundCanvas extends React.Component {
           .attr('height', this.height);
       });
 
-    window.addEventListener('click', e => {
-      let popped = false;
-      this.bubbles.forEach((d) => {
-        if(!popped && e.x > d.x * this.width - d.radius && e.x < d.x * this.width + d.radius 
-          && e.y > d.y * this.height - d.radius && e.y < d.y * this.height + d.radius) {
-          this.bubbles = this.bubbles.filter(bubble => bubble.id !== d.id);
-          this.createBurst(d);
-          this.bubbles = [...this.bubbles, ...createTinyBubbles(d)]
-          popped = true;
-        }
-      });
+    document.addEventListener('click', e => {
+      this.handleClick(e, 'click');
+    });
+
+    document.addEventListener('touchstart', e => {
+      this.handleClick(e, 'touch');
     });
 
     this.animateBubbles = this.animateBubbles.bind(this);
     this.addNewBubbles = this.addNewBubbles.bind(this);
     setInterval(this.animateBubbles, 50);
     setInterval(this.addNewBubbles, 1000);
+  }
+
+  handleClick (e, clickOrTouch = 'click') {
+    let xProp = 'x'
+    let yProp = 'y'
+    if(clickOrTouch === 'touch') {
+      xProp = 'pageX'
+      yProp = 'pageY'
+    }
+    let popped = false;
+    this.bubbles.forEach((d) => {
+      let radius = this.scaleRadius(d.radius);
+      if(!popped && e[xProp] > d.x * this.width - radius && e[xProp] < d.x * this.width + radius 
+        && e[yProp] > d.y * this.height - radius && e[yProp] < d.y * this.height + radius) {
+        this.bubbles = this.bubbles.filter(bubble => bubble.id !== d.id);
+        this.createBurst(d);
+        this.bubbles = [...this.bubbles, ...createTinyBubbles(d)]
+        popped = true;
+      }
+    });
+  }
+
+  scaleRadius (radiusValue) {
+    return radiusValue * Math.pow(Math.max(this.width / 150, 1), 0.15);
+    // return radiusValue;
   }
 
   animateBubbles() {
@@ -50,18 +70,12 @@ class BackgroundCanvas extends React.Component {
       d3.select('svg').selectAll('circle')
         .data(this.bubbles, d => d.id);
 
-
     bubbles.enter()
       .append('circle')
       .attr('class', 'bubble')
-      .attr('r', d => d.radius)
+      .attr('r', d => this.scaleRadius(d.radius))
       .attr('cx', d => d.x * this.width)
       .attr('cy', d => d.y * this.height)
-      // .on('click', (d) => {
-      //   this.bubbles = this.bubbles.filter(bubble => bubble.id !== d.id);
-      //   this.createBurst(d);
-      //   this.bubbles = [...this.bubbles, ...createTinyBubbles(d)]
-      // });
 
     bubbles.exit()
       .remove();
@@ -80,7 +94,7 @@ class BackgroundCanvas extends React.Component {
 
   createBurst(d) {
     var lines = [];
-    var length = d.radius + 1;
+    var length = this.scaleRadius(d.radius) + 1;
     for(var i = 0; i < 6; i++) {
       lines.push({
         x1: d.x * this.width,
