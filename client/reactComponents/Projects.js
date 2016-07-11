@@ -1,10 +1,10 @@
 import React from 'react';
+import Project from './Project';
 
 const Projects = (props) => {
   return (
     <div key='projects' className='projects'>
-      <div className='project'>
-        <h2> Evolution </h2>
+      <Project title='Evolution'>
         <p>
           Some text about Evolution
         </p>
@@ -15,10 +15,8 @@ const Projects = (props) => {
           <a href='/evolution' target='_blank'> Visit </a>
           <a href='https://github.com/iandeboisblanc/evolution' target='_blank'> GH (Icon) </a>
         </p>
-      </div>
-      <br/>
-      <div className='project'>
-        <h2> VR WikiMuseum </h2>
+      </Project>
+      <Project title='VR WikiMuseum'>
         <p>
           Some text about VR WikiMuseum
         </p>
@@ -29,10 +27,8 @@ const Projects = (props) => {
           <a href='http://www.vrwikimuseum.com' target='_blank'> Visit </a>
           <a href='https://github.com/iandeboisblanc/VRwikiMuseum' target='_blank'> GH (Icon) </a>
         </p>
-      </div>
-      <br/>
-      <div className='project'>
-        <h2> BubbleTanks 3D </h2>
+      </Project>
+      <Project title='BubbleTanks 3D'>
         <p>
           Some text about BubbleTanks 3D
         </p>
@@ -43,10 +39,8 @@ const Projects = (props) => {
           <a href='http://www.bubbletanks.biz' target='_blank'> Play </a>
           <a href='https://github.com/ourvrisrealerthanyours/tanks' target='_blank'> GH (Icon) </a>
         </p>
-      </div>
-      <br/>
-      <div className='project'>
-        <h2> Thumbroll </h2>
+      </Project>
+      <Project title='Thumbroll'>
         <p>
           Some text about Thumbroll
         </p>
@@ -56,10 +50,8 @@ const Projects = (props) => {
         <p>
           <a href='http://www.thumbroll.xyz' target='_blank'> Link?? </a>
         </p>
-      </div>
-      <br/>
-      <div className='project'>
-        <h2> Web Gobbler </h2>
+      </Project>
+      <Project title='Web Gobbler'>
         <p>
           Some text about Gobbler
         </p>
@@ -69,7 +61,7 @@ const Projects = (props) => {
         <p>
           <a href='http://www.gobblerweb.com' target='_blank'> Visit </a>
         </p>
-      </div>
+      </Project>
     </div>
   )
 }
