@@ -16,6 +16,7 @@ const Projects = (props) => {
           <a href='https://github.com/iandeboisblanc/evolution' target='_blank'> GH (Icon) </a>
         </p>
       </div>
+      <br/>
       <div className='project'>
         <h2> VR WikiMuseum </h2>
         <p>
@@ -29,6 +30,7 @@ const Projects = (props) => {
           <a href='https://github.com/iandeboisblanc/VRwikiMuseum' target='_blank'> GH (Icon) </a>
         </p>
       </div>
+      <br/>
       <div className='project'>
         <h2> BubbleTanks 3D </h2>
         <p>
@@ -42,6 +44,7 @@ const Projects = (props) => {
           <a href='https://github.com/ourvrisrealerthanyours/tanks' target='_blank'> GH (Icon) </a>
         </p>
       </div>
+      <br/>
       <div className='project'>
         <h2> Thumbroll </h2>
         <p>
@@ -54,6 +57,7 @@ const Projects = (props) => {
           <a href='http://www.thumbroll.xyz' target='_blank'> Link?? </a>
         </p>
       </div>
+      <br/>
       <div className='project'>
         <h2> Web Gobbler </h2>
         <p>

@@ -9,7 +9,7 @@ body {
   color: rgb(70, 65, 65);
 }
 
-a:visited {
+a, a:visited {
   text-decoration: none;
   color: rgb(70, 65, 65);
 }
