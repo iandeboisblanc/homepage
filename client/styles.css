@@ -182,8 +182,8 @@ p {
     margin: 0vw 0vw 3vw 0vw;
   }
 
-  .copy {
-    font-size: 3vw;
+  .copy, .clipboardFeedback {
+    font-size: 0px;
   }
 
   .about, .projectContent {
@@ -192,10 +192,6 @@ p {
 
   .contactDetailsContent {
     margin-left: 6vw;
-  }
-
-  .clipboardFeedback {
-    font-size: 4vw;
   }
 
 }
