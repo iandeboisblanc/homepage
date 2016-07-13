@@ -36,6 +36,7 @@ class BackgroundCanvas extends React.Component {
     this.addNewBubbles = this.addNewBubbles.bind(this);
     setInterval(this.animateBubbles, 50);
     setInterval(this.addNewBubbles, 1000);
+    setTimeout(this.burstRandom.bind(this), Math.random() * 4000 + 4000);
   }
 
   handleClick (e, clickOrTouch = 'click') {
@@ -50,12 +51,21 @@ class BackgroundCanvas extends React.Component {
       let radius = this.scaleRadius(d.radius);
       if(!popped && e[xProp] > d.x * this.width - radius && e[xProp] < d.x * this.width + radius 
         && e[yProp] > d.y * this.height - radius && e[yProp] < d.y * this.height + radius) {
-        this.bubbles = this.bubbles.filter(bubble => bubble.id !== d.id);
-        this.createBurst(d);
-        this.bubbles = [...this.bubbles, ...createTinyBubbles(d)]
+        this.burstBubble(d);
         popped = true;
       }
     });
+  }
+
+  burstBubble (d) {
+    this.bubbles = this.bubbles.filter(bubble => bubble.id !== d.id);
+    this.createBurst(d);
+    this.bubbles = [...this.bubbles, ...createTinyBubbles(d)];
+  }
+
+  burstRandom () {
+    this.burstBubble.call(this,this.bubbles[Math.floor(Math.random() * this.bubbles.length)]);
+    setTimeout(this.burstRandom.bind(this), Math.random() * 6000 + 4000);
   }
 
   scaleRadius (radiusValue) {
