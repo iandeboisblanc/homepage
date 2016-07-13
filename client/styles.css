@@ -9,6 +9,10 @@ body {
   color: rgb(70, 65, 65);
 }
 
+.copy {
+  font-size: 9px;
+}
+
 a, a:visited {
   text-decoration: none;
   color: rgb(70, 65, 65);
@@ -99,13 +103,21 @@ p {
   cursor: pointer;
 }
 
-.projectTitle:hover, .iconLink:hover {
+.projectTitle:hover, .iconLink:hover, .copy:hover {
   cursor: pointer;
   color: rgb(159, 204, 201);
 }
 
 .iconLink {
   margin: 0px 7px;
+}
+
+.firstIcon {
+  margin: 0px 4px 0px 0px;
+}
+
+.contactDetailsContent {
+  margin-left: 10px;
 }
 
 .email {
@@ -170,8 +182,16 @@ p {
     margin: 0vw 0vw 3vw 0vw;
   }
 
+  .copy {
+    font-size: 3vw;
+  }
+
   .about, .projectContent {
     padding: 3vw 3vw 0vw 3vw;
+  }
+
+  .contactDetailsContent {
+    margin-left: 6vw;
   }
 
   .clipboardFeedback {

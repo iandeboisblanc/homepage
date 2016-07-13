@@ -22,7 +22,7 @@ class Projects extends React.Component {
           </p>
         </Project>
         <Project title='VR WikiMuseum' 
-        url='http://vrwikimuseum.com/' 
+        url='http://www.vrwikimuseum.com/' 
         github='https://github.com/iandeboisblanc/VRwikiMuseum'>
           <p>
             Visit any Wikipedia page as 2D information or a 3D/VR museum room. Each room scales
@@ -74,10 +74,13 @@ class Projects extends React.Component {
         url='http://www.gobblerweb.com'
         github='https://github.com/UnfetteredCheddar/UnfetteredCheddar'>
           <p>
-            Some text about Gobbler
+            Gobbler is an automated web scraper manager and notification platform. Use Gobbler 
+            to check your favorite sites for specified keywords and notify you of any updates
+            via web, email, or text. 
           </p>
           <p>
-            Potentially a bit more
+            Gobbler is built using Angular and Meteor, with a Mongo databas. CRON-based custom content parser 
+            and comparison algorithms trigger email and text notifications powered by the Twilio API.
           </p>
         </Project>
       </div>
