@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch & nodemon server/app.js"
+    "start": "webpack --watch & nodemon server/app.js",
+    "build": "docker build . -t homepage",
+    "kill": "docker rm -f homepageContainer",
+    "deploy": "docker run -d --name homepageContainer -p 80:80 homepage",
+    "dockerize": "npm run build && npm run kill && npm run deploy",
+    "docker-start": "node server/app.js"
   },
   "repository": {
     "type": "git",

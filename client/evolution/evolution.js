@@ -8,8 +8,8 @@ var canvas = {
 canvas.max = Math.max(canvas.width, canvas.height);
 
 //INIT:
-// HTTPRequest.get('http://159.203.249.253/api/state', function(status, headers, content) {
-HTTPRequest.get('http://localhost:8080/api/state', function(status, headers, content) {
+HTTPRequest.get('http://159.203.209.170/api/state', function(status, headers, content) {
+// HTTPRequest.get('http://localhost:8080/api/state', function(status, headers, content) {
   var body = JSON.parse(content);
   settings = body.settings;
   settings.min = Math.min(settings.width, settings.height);

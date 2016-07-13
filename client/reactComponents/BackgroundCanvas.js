@@ -10,7 +10,7 @@ class BackgroundCanvas extends React.Component {
     this.bubbleCount = 100;
     this.bubbles = createRandomBubbles(this.bubbleCount);
     let transitionTime = 15;
-    this.burstTransition = d3.transition().duration(transitionTime / 2).ease(d3.easeLinear);
+    // this.burstTransition = d3.transition().duration(transitionTime / 2).ease(d3.easeLinear);
     this.delayedBurstTransition = d3.transition().duration(transitionTime).ease(d3.easeLinear).delay(transitionTime * 0.75);
   }
 
@@ -64,7 +64,10 @@ class BackgroundCanvas extends React.Component {
   }
 
   burstRandom () {
-    this.burstBubble.call(this,this.bubbles[Math.floor(Math.random() * this.bubbles.length)]);
+    // this.burstBubble.call(this,this.bubbles[Math.floor(Math.random() * this.bubbles.length)]);
+    let d = this.bubbles[Math.floor(Math.random() * this.bubbles.length)];
+    this.bubbles = this.bubbles.filter(bubble => bubble.id !== d.id);
+    this.bubbles = [...this.bubbles, ...createTinyBubbles(d)];
     setTimeout(this.burstRandom.bind(this), Math.random() * 6000 + 4000);
   }
 
