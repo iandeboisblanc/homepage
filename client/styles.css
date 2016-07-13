@@ -64,14 +64,26 @@ a {
   position: absolute;
   left: 0;
   right: 0;
-  background-color: rgba(255, 255, 255, 0.75);
   margin: 10px;
   padding: 10px;
-  border-radius: 3px;
+  /*border-radius: 3px;*/
+}
+
+.about, .contact, .projectContainer {
+  background: rgba(255, 255, 255, 0.75); 
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));  
+  background: -o-linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));  
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+}
+
+p {
+  margin: 0px 0px 10px 0px;
 }
 
 .projects {
   padding: 0px;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .projectContainer {
@@ -79,16 +91,21 @@ a {
   overflow: hidden;
 }
 
-.projectContent {
-  padding: 10px;
+.about, .projectContent {
+  padding: 10px 10px 0px 10px;
 }
 
-.projectImage {
-  width: 100%;
-  height: auto;
-  position: absolute;
-  z-index: -1;
-  opacity: 0.5;
+.projectTitle {
+  cursor: pointer;
+}
+
+.projectTitle:hover, .iconLink:hover {
+  cursor: pointer;
+  color: rgb(159, 204, 201);
+}
+
+.iconLink {
+  margin: 0px 7px;
 }
 
 .email {
@@ -114,7 +131,7 @@ a {
   margin: 0px;
   border: none;
   background: none;
-  /*outline: none;*/
+  outline: none;
 }
 
 .example-enter {
@@ -149,9 +166,18 @@ a {
     font-size: 7vw;
   }
 
+  p {
+    margin: 0vw 0vw 3vw 0vw;
+  }
+
+  .about, .projectContent {
+    padding: 3vw 3vw 0vw 3vw;
+  }
+
   .clipboardFeedback {
     font-size: 4vw;
   }
+
 }
 
 
