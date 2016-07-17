@@ -192,16 +192,15 @@ function updateBodyPartPositions() {
 }
 
 function killEves() {
-  var slowest = 0;
+  var worstIndex = 0;
   for(var i = 0; i < Eves.length; i++) {
-    var eveSpeed = (Eves[i].stats.distanceTraveled / Eves[i].stats.cyclesSinceBirth) || 0;
-    var smallestSpeed = (Eves[slowest].stats.distanceTraveled / Eves[slowest].stats.cyclesSinceBirth) || 0;
-    if(eveSpeed < smallestSpeed && Eves[i].stats.cyclesSinceBirth > 5) {
+    let eveScore = getSurvivalScore(Eves[i]);
+    let worstScore = getSurvivalScore(Eves[worstIndex]);
+    if(eveScore < worstScore && Eves[i].stats.cyclesSinceBirth > 5) {
       slowest = i;
     }
   }
-
-  Eves.splice(slowest,1);
+  Eves.splice(worstIndex,1)[0];
 
   //Remove from board
   var elementsToRemove = [];
@@ -228,6 +227,11 @@ function killEves() {
     // .remove();
   // would be great if i could remove a piece at a time
 
+}
+
+function getSurvivalScore(eve) {
+  let speed = eve.stats.distanceTraveled / eve.stats.cyclesSinceBirth || 0;
+  return speed * Math.pow(eve.bodyParts.length, 0.75);
 }
 
 function deriveEveData(proto) {

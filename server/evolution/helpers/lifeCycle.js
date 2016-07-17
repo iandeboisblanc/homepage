@@ -8,15 +8,15 @@ var getAvgPosition = helpers.getAvgPosition;
 module.exports = {
 
   killEve: (Eves) => {
-    var slowest = 0;
+    var worstIndex = 0;
     for(var i = 0; i < Eves.length; i++) {
-      var eveSpeed = (Eves[i].stats.distanceTraveled / Eves[i].stats.cyclesSinceBirth) || 0;
-      var smallestSpeed = (Eves[slowest].stats.distanceTraveled / Eves[slowest].stats.cyclesSinceBirth) || 0;
-      if(eveSpeed < smallestSpeed && Eves[i].stats.cyclesSinceBirth > 5) {
+      let eveScore = getSurvivalScore(Eves[i]);
+      let worstScore = getSurvivalScore(Eves[worstIndex]);
+      if(eveScore < worstScore && Eves[i].stats.cyclesSinceBirth > 5) {
         slowest = i;
       }
     }
-    var eve = Eves.splice(slowest,1)[0];
+    Eves.splice(worstIndex,1)[0];
   },
 
   collectStats: (Eves) => {
@@ -29,4 +29,9 @@ module.exports = {
       eve.stats.currentPos = pos;
     }
   }
+}
+
+function getSurvivalScore(eve) {
+  let speed = eve.stats.distanceTraveled / eve.stats.cyclesSinceBirth || 0;
+  return speed * Math.pow(eve.bodyParts.length, 0.75);
 }
