@@ -9,18 +9,6 @@ class Projects extends React.Component {
   render () {
     return (
       <div key='projects' className='projects'>
-        <Project title='Evolution' 
-        url='/evolution' 
-        github='https://github.com/iandeboisblanc/evolution'>
-          <p>
-            Watch the creation of life in a artistic life-simulator in which cellular automata randomly
-            mutate and evolve over time in pursuit of optimization of a defined survival condition.
-          </p>
-          <p>
-            Evolution is built on a custom physics engine rendered using d3. Evolution happens server-side,
-            so check back frequently to see how things have changed!
-          </p>
-        </Project>
         <Project title='VR WikiMuseum' 
         url='http://www.vrwikimuseum.com/' 
         github='https://github.com/iandeboisblanc/VRwikiMuseum'>
@@ -52,6 +40,18 @@ class Projects extends React.Component {
           <p>
             BubbleTanks is built with A-Frame VR and React on the front end, speaking to a
             Node/Express server using Socket.io.
+          </p>
+        </Project>
+        <Project title='Evolution' 
+        url='/evolution' 
+        github='https://github.com/iandeboisblanc/evolution'>
+          <p>
+            Watch the creation of life in a artistic life-simulator in which cellular automata randomly
+            mutate and evolve over time in pursuit of optimization of a defined survival condition.
+          </p>
+          <p>
+            Evolution is built on a custom physics engine rendered using d3. Evolution happens server-side,
+            so check back frequently to see how things have changed!
           </p>
         </Project>
         <Project title='Thumbroll' 
