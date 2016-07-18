@@ -4,13 +4,22 @@
 
 body {
   font-family: 'Josefin Sans', sans-serif;
+  font-size: 24px;
   text-decoration: none;
   cursor: default;
   color: rgb(70, 65, 65);
 }
 
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 36px
+}
+
 .copy {
-  font-size: 9px;
+  font-size: 15px;
 }
 
 a, a:visited {
@@ -81,8 +90,12 @@ a {
   background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
 }
 
+.pageAbout {
+  font-size: 18px;
+}
+
 p {
-  margin: 0px 0px 10px 0px;
+  margin: 0px 0px 18px 0px;
 }
 
 .projects {
@@ -103,7 +116,7 @@ p {
   cursor: pointer;
 }
 
-.projectTitle:hover, .iconLink:hover, .copy:hover {
+.projectTitle:hover, .iconLink:hover, .copy:hover, .evoLink:hover {
   cursor: pointer;
   color: rgb(159, 204, 201);
 }
@@ -188,6 +201,10 @@ p {
 
   .about, .projectContent {
     padding: 3vw 3vw 0vw 3vw;
+  }
+
+  .pageAbout {
+    font-size: 4.2vw;
   }
 
   .contactDetailsContent {

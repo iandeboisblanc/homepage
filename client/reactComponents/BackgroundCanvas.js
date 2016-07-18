@@ -148,7 +148,7 @@ module.exports = BackgroundCanvas;
 function createRandomBubbles(n) {
   var bubbles = [];
   for(var i = 0; i < n; i++) {
-    var radius = Math.random() * 7 + 3;
+    var radius = Math.random() * 7 + 6;
     var x = Math.random();
     var y = 1 + Math.random();
     var rate = (Math.random() * 15 + 8)  / 10000;

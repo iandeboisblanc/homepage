@@ -17,6 +17,13 @@ const About = (props) => {
         I am well-versed in numerous web technologies including React, React Native, Angular, Backbone, AframeVR,
         JQuery, HTML5, CSS3, ES6, Node, PostreSQL, MongoDB, Docker, and Git.
       </p>
+      <br/>
+      <p className='pageAbout'>
+        This webpage is built using React and D3, with React-Router browserHistory providing single-page routing.
+        A Dockerized Node/Express server serves static files and provides a RESTful endpoint for requesting 
+        the current state of 
+        <a className='evoLink' href='/evolution' target='_blank'> Evolution</a>.
+      </p>
     </div>
   )
 }
