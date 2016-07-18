@@ -44,7 +44,7 @@ line {
 
 .bubble {
   stroke: rgb(159, 204, 201);
-  stroke-width: 1px;
+  stroke-width: 2px;
   fill: rgb(255, 243, 224);
 }
 
