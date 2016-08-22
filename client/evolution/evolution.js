@@ -231,7 +231,7 @@ function killEves() {
 
 function getSurvivalScore(eve) {
   let speed = eve.stats.distanceTraveled / eve.stats.cyclesSinceBirth || 0;
-  return speed * Math.pow(eve.bodyParts.length, 0.5);
+  return speed * Math.pow(eve.bodyParts.length, 0.25);
 }
 
 function deriveEveData(proto) {
